@@ -1,15 +1,47 @@
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Programmers' Statistics App</a>
-        </div>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>Programmers' Statistics App</span>
+        <span class="spacer"></span>
 
-        <ul class="nav navbar-nav navbar-right">
-            <li><a routerLink=""><span class="glyphicon glyphicon-user"></span> Home</a></li>
-            <li><a routerLink="/admin"><span class="glyphicon glyphicon-log-in"></span> Add</a></li>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Add New Language</button>
-        </ul>
+        <a routerLink="/"><button mat-button>Home</button></a>
+        <a routerLink="">
+            <button id="addLanguage" mat-button type="button" data-toggle="modal" data-target="#exampleModalCenter">Add New Language</button>
+        </a>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Add New Language</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <mat-form-field>
+                    <input matInput [(ngModel)]="newLang" placeholder="Add New Language">
+                </mat-form-field>
+                <button mat-raised-button id="hide"> Clear </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button (click)="languageMethod()" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
-</nav>
+</div>
+<!-- <mat-card id="LangAdd">
+    <span class="spacer"></span>
+    <mat-form-field>
+        <input matInput [(ngModel)]="answer" placeholder="">
+    </mat-form-field>
+    <button mat-raised-button (click)="newLanguage()"> Add New Language </button>
+    <button mat-raised-button id="hide"> Close </button>
+</mat-card> -->
+
+<!-- Modal -->
 
 <router-outlet></router-outlet>
